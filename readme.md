@@ -1,4 +1,4 @@
-# Project
+# Project (~2018/2019 startup)
 Start-up project for "anonynomous" chat. 
  - Microservice for fetching tv-shows
  - Android for chatting
