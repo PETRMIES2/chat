@@ -1,0 +1,100 @@
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <RelativeLayout
+        app:layout_heightPercent="100%"
+        app:layout_widthPercent="60%"
+        android:id="@+id/channel_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/margin_normal"
+        android:layout_toRightOf="@+id/channel_area">
+
+        <TextView
+            android:id="@+id/channel_show_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="4"
+            android:layout_centerVertical="true"
+            android:text="VERYLONGSHOWNAME THAT SHOULD BE splitted"
+            android:textColor="@color/desaturated_dark_blue"
+            style="@style/channel_showname" />
+
+        <ImageView
+            android:id="@+id/tvshow_airtime_clock"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_below="@+id/channel_show_name"
+            android:src="@drawable/tvshow_airtime_clock" />
+
+        <TextView
+            android:id="@+id/channel_show_time"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/channel_show_name"
+            android:text="Airtime"
+            android:textColor="@color/light_grayish_blue_darker"
+            android:layout_toRightOf="@+id/tvshow_airtime_clock"
+            style="@style/channel_airtime" />
+
+    </RelativeLayout>
+
+    <android.support.percent.PercentRelativeLayout
+        app:layout_heightPercent="100%"
+        app:layout_widthPercent="20%"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/channel_show">
+
+        <ImageView
+            android:id="@+id/channel_person_image"
+            app:layout_heightPercent="40%"
+            app:layout_widthPercent="40%"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@+id/channel_show_participants"
+            android:src="@drawable/user_icon" />
+
+        <TextView
+            android:id="@+id/channel_show_participants"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:text="participants"
+            android:textColor="@color/mostly_pure_yellow"
+            android:textSize="12sp" />
+
+
+    </android.support.percent.PercentRelativeLayout>
+
+    <android.support.percent.PercentRelativeLayout
+        app:layout_heightPercent="100%"
+        app:layout_widthPercent="20%"
+        android:id="@+id/channel_area"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:background="@drawable/left_background"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/channel_tv_icon"
+            app:layout_heightPercent="70%"
+            app:layout_widthPercent="70%"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:src="@drawable/show_ava" />
+    </android.support.percent.PercentRelativeLayout>
+</android.support.percent.PercentRelativeLayout>

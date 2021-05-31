@@ -1,0 +1,19 @@
+{
+  "messages" : {
+    "-K2ib4H77rj0LYewF7dP" : {
+      "message" : "Hello",
+      "author" : "anonymous", 
+      "channelID": "tontut"
+    },
+    "-K2ib5JHRbbL0NrztUfO" : {
+      "message" : "How are you",
+      "author" : "anonymous",
+      "channelID": "tontut"
+    },
+    "-K2ib62mjHh34CAUbide" : {
+      "message" : "I am fine",
+      "author" : "anonymous",
+      "channelID": "tontut"
+    }
+  }
+}

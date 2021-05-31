@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Sope</string>
+
+    <string name="login_prompt_username">Nimimerkki</string>
+    <string name="login_prompt_email">sähköposti</string>
+    <string name="login_prompt_password">salasana</string>
+    <string name="login_prompt_confirm_password">vahvista salasana</string>
+    <string name="login_action_register">Luo tili</string>
+    <string name="login_login">Kirjaudu</string>
+    <string name="login_already_have_account">Minulla on jo tili</string>
+    <string name="creating_account">Kirjaudutaan</string>
+    <string name="checking_username_availability">Tarkistetaan nimimerkkiä</string>
+
+    <string name="login_error_message_field_username">Nimimerkki syötettävä</string>
+    <string name="login_error_message_email">Sähköpostiosoite on virheellinen</string>
+    <string name="login_error_message_password">Salasana on pakollinen</string>
+    <string name="login_error_message_passwords_does_not_match">Salasanat eivät täsmää</string>
+    <string name="login_error_message_incorrect_password">Salasana on virheellinen</string>
+    <string name="login_error_message_field_required">Sähköpostiosoite syötettävä</string>
+    <string name="tv_text">TV</string>
+    <string name="sendMessage">Lähetä</string>
+    <string name="chat_write_text">Syötä viesti</string>
+    <string name="message_from_user">Käyttäjältä %1$s saatiin viesti</string>
+    <string name="chat_change_header">Nimeä keskustelu</string>
+    <string name="chat_rename">Nimeä</string>
+    <string name="creata_new_chat_header">Luo uusi keskustelu</string>
+    <string name="creata_new_chat_body">Nimeä keskustelu</string>
+    <string name="create_new_chat_button">Luo</string>
+    <string name="cancel">Peruuta</string>
+    <string name="username_alread_taken" >Nimimerkki on varattu</string>
+    <string name="insert_username_to_create_account" >Valitse nimimerkki ja yritä uudelleen</string>
+    <string name="login_verification_failed" >Automaattinen kirjautuminen epäonnistui</string>
+    <string name="main_category_header_general" >Yleinen</string>
+      <string name="main_category_header_popular">Suositut</string>
+    <string name="main_category_header_events">Tapahtumat</string>
+    <string name="main_category_header_tv">Televisio</string>
+
+
+</resources>

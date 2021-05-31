@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:emojicon="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <io.github.rockerhieu.emojicon.EmojiconEditText
+        android:id="@+id/chat_rename_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/separator"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="18dp"
+        android:layout_toLeftOf="@+id/chatSendMessageButton"
+        android:background="@drawable/chat_send_message_background"
+        android:hint="@string/chat_change_header"
+        android:imeOptions="actionDone"
+        android:inputType="textMultiLine|textNoSuggestions"
+        android:maxLines="3"
+        android:textSize="18sp"
+        android:paddingBottom="4dp"
+        android:scrollHorizontally="false"
+        app:layout_widthPercent="80%"
+        emojicon:emojiconAlignment="baseline"
+        emojicon:emojiconSize="25sp" />
+
+
+
+</LinearLayout>

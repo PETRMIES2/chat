@@ -1,0 +1,135 @@
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/event_layout"
+        app:layout_heightPercent="100%"
+        app:layout_widthPercent="20%">
+
+        <ImageView
+            android:id="@+id/event_person_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@+id/channel_show_participants"
+            android:src="@drawable/user_icon"
+            app:layout_heightPercent="40%"
+            app:layout_widthPercent="40%" />
+
+        <TextView
+            android:id="@+id/event_participants"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:text="participants"
+            android:textColor="@color/mostly_pure_yellow"
+            android:textSize="12sp" />
+
+
+    </android.support.percent.PercentRelativeLayout>
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/event_icon_area"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/left_background"
+        app:layout_heightPercent="100%"
+        app:layout_widthPercent="20%">
+
+        <ImageView
+            android:id="@+id/event_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:src="@drawable/event_ruisrock"
+            app:layout_heightPercent="70%"
+            app:layout_widthPercent="70%" />
+
+    </android.support.percent.PercentRelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/event_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_normal"
+        app:layout_heightPercent="100%"
+        app:layout_widthPercent="60%"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+
+
+        <TextView
+            android:id="@+id/event_name"
+            style="@style/channel_showname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/event_place"
+            android:layout_centerVertical="true"
+            android:maxLines="4"
+            android:text="Very long text should be in two lines"
+            android:textColor="@color/desaturated_dark_blue" />
+
+
+        <TextView
+            android:id="@+id/event_place"
+            style="@style/channel_showname"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/event_name"
+            android:textSize="6pt"
+            android:text="TURKU"
+            android:background="@color/grayish_blue"
+            android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/event_start"
+            style="@style/channel_airtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/event_place"
+            android:layout_below="@+id/event_name"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginTop="2dp"
+            android:text="16 Jul"
+            android:textColor="@color/light_grayish_blue_darker" />
+
+        <TextView
+            android:id="@+id/event_arrow"
+            style="@style/channel_airtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/event_start"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_below="@+id/event_name"
+            android:text="-"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/light_grayish_blue_darker" />
+
+        <TextView
+            android:id="@+id/event_end"
+            style="@style/channel_airtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_toRightOf="@+id/event_arrow"
+            android:layout_below="@+id/event_name"
+            android:text="17 Jul"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/light_grayish_blue_darker" />
+
+
+
+    </RelativeLayout>
+</android.support.percent.PercentRelativeLayout>

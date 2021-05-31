@@ -1,0 +1,85 @@
+import org.apache.tools.ant.filters.*
+buildscript {
+    repositories { maven {  url "https://plugins.gradle.org/m2/" } }
+    dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE") }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply from: 'user.gradle'
+
+compileTestJava {
+    //enable compilation in a separate daemon process
+    options.fork = true
+    options.encoding = 'UTF-8'
+    options.debug = true
+
+}
+compileJava{
+    //enable compilation in a separate daemon process
+    options.fork = true
+    options.encoding = 'UTF-8'
+    options.debug = true
+
+    println "*** SHOWFETCH: COMPILE INFORMATION ***"
+    println "Source compatibility $project.sourceCompatibility - $sourceCompatibility"
+    println "Target compatibility $project.targetCompatibility - $targetCompatibility"
+    println "Encoding $options.encoding"
+    println "Debug $options.debug"
+    println "Java home $System.env.JAVA_HOME"
+}
+
+dependencies { 
+    repositories { mavenCentral()}
+    compile "org.springframework.boot:spring-boot-starter-web:1.5.2.RELEASE",
+            'javax.inject:javax.inject:1', 
+            'com.squareup.okhttp3:okhttp:3.4.1',
+            'com.google.code.gson:gson:2.7',
+            "org.hibernate:hibernate-core:$hibernateVersion",
+            "org.hibernate:hibernate-c3p0:$hibernateVersion",
+            "mysql:mysql-connector-java:$mysqlConnectorVersion",
+            "com.google.guava:guava:$guavaVersion" 
+    compile project(":core")
+    compile project(":common")
+    testCompile "junit:junit:$jUnit",
+                "org.assertj:assertj-core:$assertJ"
+}
+
+
+loadConfiguration()
+
+def loadConfiguration() {
+    def environment = hasProperty('env') ? env : 'dev'
+    project.ext.environement = environment
+    println "Environment is set to $environment"
+
+    def environmentFile = file('environments.groovy')
+    def environmentConfig = new ConfigSlurper(environment ).parse(environmentFile.toURL())
+    project.ext.config =  environmentConfig
+
+    println "databaseuser:  $project.ext.config.datasource.username"
+    println "databasepassword: $project.ext.config.datasource.password"
+}
+
+eclipse {
+    classpath {
+        defaultOutputDir = file('build')
+        file {
+            beforeMerged { classpath ->
+                classpath.entries.removeAll { entry -> entry.kind == 'output' }
+            }
+        }
+    }
+}
+
+processResources {
+    expand(project.ext.config)
+}
+
+task copyResourcesToBuildRoot(type: Copy) {
+    from 'build/resources/main'
+    into 'build'
+}
+build.dependsOn copyResourcesToBuildRoot
+

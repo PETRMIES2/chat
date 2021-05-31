@@ -1,0 +1,15 @@
+include 'backend'
+include 'core'
+include 'android'
+include 'showfetch'
+include 'common'
+rootProject.name = 'sope'
+
+rootProject.children.each {project ->
+    String fileBaseName = project.name.replaceAll("\\p{Upper}") { "-${it.toLowerCase()}" }
+    String projectDirName = "subprojects/$fileBaseName"
+    project.projectDir = new File(settingsDir, projectDirName)
+    project.buildFileName = "build.gradle"
+    assert project.projectDir.isDirectory()
+    assert project.buildFile.isFile()
+}

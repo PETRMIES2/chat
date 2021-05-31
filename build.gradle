@@ -1,0 +1,28 @@
+import org.apache.tools.ant.filters.*
+buildscript {
+    repositories { maven { url "https://plugins.gradle.org/m2/"
+        } }
+    dependencies { classpath "org.flywaydb:flyway-gradle-plugin:3.2.1" }
+}
+
+apply plugin: 'eclipse'
+
+task wrapper(type: Wrapper) {  gradleVersion = '3.0'  }
+
+ext {
+    servletApiVersion = "3.1.0"
+    jacksonVersion = "2.8.0"
+    guavaVersion = "19.0"
+    assertJ = "2.5.0"
+    mockitoCore = "2.0.2-beta"
+    slf4jVersion = "1.7.13"
+    hibernateVersion = "5.1.0.Final"
+
+    springVersion = "4.3.7.RELEASE"
+    springSecurityVersion = "4.2.2.RELEASE"
+
+    mysqlConnectorVersion = "5.1.39"
+    hikariCPVersion = "2.4.7"
+
+    jUnit = "4.12"
+}

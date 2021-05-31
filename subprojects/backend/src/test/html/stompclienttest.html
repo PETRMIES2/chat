@@ -1,0 +1,37 @@
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.2/sockjs.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+ 
+  <script>
+  document.cookie = "session=124" + ";path=/;domain=example.com;"
+  //document.cookie = "key=MTQ4OTM0MTcyMDIzNDo4MzFjMzMxZGYyYzU2NzIwMzU1Njc0NDc0MmRiNGFlOGMyZjZiY2JmZmYxOTRhN2YyMjliNGY1ZDMzOTk3ZGUwOnBldHJhOmY2YWExYzczY2RiYzFlMzZmNWFlZjY3YjZkNmZkMjhiNWViNmM5MTFjMGZjNDdhODUzMGY1YjY4YTk1NjNmY2ViZDhmNWUwZWQzNWIwNjRhZDQ3MDY0M2EwMTlkYzllMzVjMTNmMzdjMWM2YmNiODQ5YjFkNTIwNzAxZDUxZGQ1";
+  var websocket = new WebSocket("ws://192.168.10.54:8080/sope/directchat");
+//  var websocket = new WebSocket("ws://localhost:8080/sope/directchat");
+  websocket.onmessage = function(e) {
+	  console.log(e.data)
+	}
+
+  websocket.onopen = function() {
+	  console.log('opening...')
+	  websocket.send('hello server')
+	}
+
+  websocket.onerror = function(error) {
+	  console.log('WEbSocket error ' + error)
+	  console.dir(error)
+	}
+  /*
+  var socket = new SockJS("http://localhost:8080/sope/directchat");
+  var stompClient = Stomp.over(socket);
+  // kirjautuneen käyttäjän token. 
+  stompClient.connect({'token': 'MTQ4OTM0MTcyMDIzNDo4MzFjMzMxZGYyYzU2NzIwMzU1Njc0NDc0MmRiNGFlOGMyZjZiY2JmZmYxOTRhN2YyMjliNGY1ZDMzOTk3ZGUwOnBldHJhOmY2YWExYzczY2RiYzFlMzZmNWFlZjY3YjZkNmZkMjhiNWViNmM5MTFjMGZjNDdhODUzMGY1YjY4YTk1NjNmY2ViZDhmNWUwZWQzNWIwNjRhZDQ3MDY0M2EwMTlkYzllMzVjMTNmMzdjMWM2YmNiODQ5YjFkNTIwNzAxZDUxZGQ1'}, function (frame) {
+      console.log('Connected: ' + frame);
+      stompClient.subscribe('/topic/messages', function (greeting) {
+          console.log(greeting);
+      });
+      stompClient.send("/app/chatmessage", {}, JSON.stringify({'name': 'johny'}));
+      console.log('Hello');
+
+  });
+  */
+ 
+  </script>

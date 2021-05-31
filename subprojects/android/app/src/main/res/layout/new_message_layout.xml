@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:emojicon="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/new_message_user_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@color/red"
+            android:clickable="true"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/chat_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:layout_marginLeft="10dp"
+            android:text="USERNAME TEXT"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <io.github.rockerhieu.emojicon.EmojiconTextView
+        android:id="@+id/chat_message"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginStart="30dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:autoLink="web"
+        android:lineSpacingExtra="-2dp"
+        android:text="\ue32d Rahul Agrawal is a ;) good boy but he does not know what he wants. asdfa sdas asdf asdf sd asdf asdf sad fasd asd fasd fasd f"
+        android:textColor="@color/desaturated_dark_blue"
+        emojicon:emojiconAlignment="baseline"
+        emojicon:emojiconSize="22sp" />
+
+    <TextView
+        android:id="@+id/chat_timeText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Today | 18:29"
+        android:textColor="@color/desaturated_dark_blue"
+        android:textSize="@dimen/margin_normal"
+        android:gravity="end"
+        />
+</LinearLayout>

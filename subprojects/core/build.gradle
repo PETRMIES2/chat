@@ -1,0 +1,89 @@
+import org.apache.tools.ant.filters.*
+buildscript {
+    repositories { maven { url "https://plugins.gradle.org/m2/" } }
+    dependencies { classpath "org.flywaydb:flyway-gradle-plugin:3.2.1" }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply from: 'user.gradle'
+
+sourceCompatibility = JavaVersion.VERSION_1_7
+targetCompatibility = JavaVersion.VERSION_1_7
+
+compileJava {
+    //enable compilation in a separate daemon process
+    options.fork = true
+    options.encoding = 'UTF-8'
+    options.debug = true
+
+}
+
+compileJava{
+    println "*** CORE: COMPILE INFORMATION ***"
+    println "Source compatibility $project.sourceCompatibility - $sourceCompatibility"
+    println "Target compatibility $project.targetCompatibility - $targetCompatibility"
+    println "Encoding $options.encoding"
+    println "Debug $options.debug"
+    println "Java home $System.env.JAVA_HOME"
+}
+
+
+
+
+dependencies {
+    repositories { mavenCentral() }
+
+ 
+
+      compile 'org.reflections:reflections:0.9.10',
+            "com.google.guava:guava:$guavaVersion",
+            "javax.servlet:javax.servlet-api:$servletApiVersion",
+            "mysql:mysql-connector-java:$mysqlConnectorVersion",
+
+            "com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion",
+            "com.fasterxml.jackson.core:jackson-core:$jacksonVersion",
+            "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",
+
+
+            'javax.inject:javax.inject:1',
+
+            "org.hibernate:hibernate-core:$hibernateVersion",
+            "org.hibernate:hibernate-c3p0:$hibernateVersion",
+            "org.slf4j:slf4j-api:$slf4jVersion",
+
+            "org.springframework:spring-core:$springVersion",
+            "org.springframework:spring-web:$springVersion",
+            "org.springframework:spring-webmvc:$springVersion",
+            "org.springframework:spring-context:$springVersion",
+            "org.springframework:spring-context-support:$springVersion",
+            "org.springframework:spring-aop:$springVersion",
+            "org.springframework:spring-orm:$springVersion",
+            "org.springframework.security:spring-security-web:$springSecurityVersion",
+            "org.springframework.security:spring-security-config:$springSecurityVersion",
+            "org.flywaydb:flyway-core:4.0.1",
+            "com.zaxxer:HikariCP:$hikariCPVersion",
+            'com.sun.mail:javax.mail:1.5.4',
+            'joda-time:joda-time:2.9.4', 
+            'com.squareup.okhttp3:okhttp:3.4.1',
+            'com.google.code.gson:gson:2.7'
+            
+            compile project(":common")
+            compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
+            testCompile "junit:junit:$jUnit",
+            "org.assertj:assertj-core:$assertJ",
+            "org.mockito:mockito-core:$mockitoCore",
+            "org.mockito:mockito-all:$mockitoCore"
+
+}
+eclipse {
+    classpath {
+        defaultOutputDir = file('build')
+        file {
+            beforeMerged { classpath ->
+                classpath.entries.removeAll { entry -> entry.kind == 'output' }
+            }
+        }
+    }
+}
+
